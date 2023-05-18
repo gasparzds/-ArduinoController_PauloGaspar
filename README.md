@@ -73,7 +73,6 @@ Alimentação: Conecte as fontes de alimentação necessárias para o microcontr
 
 6. [Funcionamento do projeto](#funcionamento-do-projeto)
 
-1ª PARTE
 ![image](https://github.com/gasparzds/-ArduinoController_PauloGaspar/assets/61299557/65a6a4c8-a564-4021-bc3e-ea43df90f4ad)
 Essa linha inclui a biblioteca "Arduino.h", que fornece as funções e definições necessárias para programar o microcontrolador Arduino.
 
@@ -84,7 +83,11 @@ Nessa seção, são definidas as constantes para os pinos do botão (2) e do mot
 A função setup() é chamada uma vez no início do programa. Nessa função, os pinos do botão e do motor são configurados como entradas pull-up. Isso significa que o pino interno de resistência pull-up será ativado para garantir um estado alto quando o botão não estiver pressionado.
 
 ![image](https://github.com/gasparzds/-ArduinoController_PauloGaspar/assets/61299557/cd49b139-219b-4997-ab54-6427b3a5d5cf)
+
+
 ![WhatsApp Image 2023-05-18 at 14 32 07](https://github.com/gasparzds/-ArduinoController_PauloGaspar/assets/61299557/f68924fc-7a3b-4f6f-a8ce-b0bbb69f7f24)
+
+
 O código dentro da função loop() é executado repetidamente após a configuração inicial. Ele lê o estado atual do botão e verifica se houve uma mudança em relação ao estado anterior. Se o botão for pressionado (estado HIGH), a variável VELOCIDADE_MOTOR é incrementada. Se VELOCIDADE_MOTOR exceder 4, ele é reiniciado para 0. Em seguida, é feito um switch-case para determinar a força (valor PWM) a ser aplicada ao motor, com base no valor de VELOCIDADE_MOTOR. São especificados quatro níveis de velocidade diferentes, representados pelos valores 0, 51, 153 e 255. O caso 4 retorna 0 novamente, permitindo desligar o motor. Por fim, a função analogWrite() é usada para enviar o valor da força (PWM) ao pino do motor (PIN9_MOTOR), controlando assim a velocidade do motor.
 
 RESUMO: No geral, o código funciona da seguinte maneira: sempre que o botão for pressionado, a velocidade do motor é incrementada. Quando a velocidade atinge o limite máximo (4), ela é reiniciada para 0. Em seguida, o código determina a força correspondente ao nível de velocidade atual e a aplica ao motor usando a função analogWrite(). O ciclo do loop() continua repetindo essas etapas indefinidamente, permitindo que o usuário ajuste a velocidade do motor através do botão.
